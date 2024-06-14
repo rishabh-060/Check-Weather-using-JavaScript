@@ -10,6 +10,8 @@ const weather = document.getElementById("weather");
 
 const currentCityBtn = document.getElementById("curr-city");
 
+const img = document.getElementById('image');
+
 // http://api.weatherapi.com/v1/current.json?key=b2b047a7577f4660a4a193329243005&q=London&aqi=yes
 
 async function getData(cityName) {
@@ -35,6 +37,9 @@ btn.addEventListener("click", async () => {
   temperature.innerText = `${result.current.temp_c} °c`;
 
   feeltemp.innerText = `${result.current.feelslike_c} °c`;
+
+  img.style.visibility = 'visible';
+  img.setAttribute('src', `${result.current.condition["icon"]}`);
 });
 
 
